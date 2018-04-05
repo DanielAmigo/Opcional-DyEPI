@@ -1,0 +1,8 @@
+{
+  "name": "ejercicio-opcional",
+  "app_id": "782aad5d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
