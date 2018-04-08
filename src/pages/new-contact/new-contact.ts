@@ -18,7 +18,10 @@ import { Contacto } from '../../models/contact';
 })
 export class NewContactPage {
 
+  contacto: Contacto
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private contactService: ContactService) {
+    this.contacto = navParams.get('arg_contacto');
   }
 
   ionViewDidLoad() {
