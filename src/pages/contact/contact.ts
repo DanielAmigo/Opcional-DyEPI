@@ -21,7 +21,7 @@ import { ContactService } from '../../service/contacts.services';
 })
 export class ContactPage {
 
-  contacts: Observable<Contacto[]>;
+  contacts: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private ContactService: ContactService, private alertCtrl: AlertController) {
   }
@@ -38,6 +38,22 @@ export class ContactPage {
 
     this.contacts=this.ContactService.getContacts();
      
-   }
+  }
+
+  mostrarAlert(contacto : Contacto) {
+    let alert = this.alertCtrl.create({
+      message: 'Low battery',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
 }

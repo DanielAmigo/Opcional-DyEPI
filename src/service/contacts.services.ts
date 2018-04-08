@@ -12,8 +12,7 @@ export class ContactService{
     }
 
     addContact(value: Contacto){
-        // this.contacts.push(value);
-         //console.log('**nav params:', value);
+ 
          return this.contactsRef.push(value);
      }
  

@@ -5,20 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar primary>      <!-- Iconos iniciales. Menú -->
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
 
-  <ion-navbar>
-    <ion-title>contact</ion-title>
-    <button ion-button icon-only (click)="changePage()">
-      <ion-icon name="add"></ion-icon>
-    </button>
+    <ion-title>contact</ion-title>  <!-- Título -->
+
+    <ion-buttons right>       <!-- Botones finales. Añadir -->
+      <button ion-button icon-only (click)="changePage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let contact of contacts$ | async">
+    <button ion-item *ngFor="let contact of contacts | async" (click)="mostrarAlert(contact)">
      <p><strong>Nombre: </strong>{{contact.nombre}}</p> 
      <p><strong>Organización: </strong>{{contact.organizacion}}</p>
      <p><strong>Móvil: </strong>{{contact.numero}}</p>
