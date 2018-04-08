@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { ContactService } from '../../service/contacts.services';
 import { Contacto } from '../../models/contact';
+import { ContactService } from '../../service/contacts.services';
 
 /**
- * Generated class for the NewContactPage page.
+ * Generated class for the ModifyContactPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,24 +13,23 @@ import { Contacto } from '../../models/contact';
 
 @IonicPage()
 @Component({
-  selector: 'page-new-contact',
-  templateUrl: 'new-contact.html',
+  selector: 'page-modify-contact',
+  templateUrl: 'modify-contact.html',
 })
-export class NewContactPage {
+export class ModifyContactPage {
 
-
+  contacto: Contacto;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private contactService: ContactService) {
+    this.contacto = navParams.get('arg_contacto');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewContactPage');
+    console.log('ionViewDidLoad ModifyContactPage');
   }
 
-  onAddContact(value: Contacto){
-    this.contactService.addContact(value).then(ref => {
-      console.log(ref.key);
-    });
+  onUpdateContact(value: Contacto){
+    this.contactService.updateContact(value);
     this.navCtrl.pop();
   }
 

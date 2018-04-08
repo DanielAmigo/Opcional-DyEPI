@@ -4,8 +4,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 import { NewContactPage } from '../new-contact/new-contact';
 import { Contacto } from '../../models/contact';
-import { Observable } from '@firebase/util';
 import { ContactService } from '../../service/contacts.services';
+import { ModifyContactPage } from '../modify-contact/modify-contact';
 
 /**
  * Generated class for the ContactPage page.
@@ -47,12 +47,13 @@ export class ContactPage {
         {
           text: 'Modificar',
           handler: () => {
-            this.navCtrl.push(NewContactPage,{arg_contacto:contacto});
+            this.navCtrl.push(ModifyContactPage,{arg_contacto:contacto});
           }
         },
         {
           text: 'Eliminar',
           handler: () => {
+            console.log(contacto.key)
             this.ContactService.removeContact(contacto);
           }
         }

@@ -10,6 +10,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { NewContactPage } from '../pages/new-contact/new-contact';
 import { ContactService } from '../service/contacts.services';
+import { ModifyContactPage } from '../pages/modify-contact/modify-contact';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
     LoginPage,
     AboutPage,
     ContactPage,
-    NewContactPage
+    NewContactPage,
+    ModifyContactPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
     LoginPage,
     AboutPage,
     ContactPage,
-    NewContactPage
+    NewContactPage,
+    ModifyContactPage
   ],
   providers: [
     StatusBar,

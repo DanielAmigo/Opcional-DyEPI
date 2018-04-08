@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ModifyContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>modify-contact</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="contacto.nombre" name="nombre" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Organización</ion-label>
+        <ion-input type="text" [(ngModel)]="contacto.organizacion" name="organizacion" ngModel required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label>Numero</ion-label>
+          <ion-input type="text" [(ngModel)]="contacto.movil" name="movil" ngModel></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Correo</ion-label>
+        <ion-input type="text" [(ngModel)]="contacto.correo" name="correo" ngModel></ion-input>
+    </ion-item>
+
+
+  <button ion-button block (click)="onUpdateContact($event, contacto)">Modificar</button>
+</ion-content>

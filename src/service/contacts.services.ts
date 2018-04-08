@@ -16,15 +16,14 @@ export class ContactService{
          return this.contactsRef.push(value);
      }
  
-     updateContact(value: Contacto){
+    updateContact(value: Contacto){
+        return this.contactsRef.update(value.key,value);
+    }
  
-         return this.contactsRef.update(value.key,value);
-     }
- 
-     removeContact(value: Contacto){
+    removeContact(value: Contacto){
         console.log("Borrando usuario con nombre " + value.nombre)
         return this.contactsRef.remove(value.key);
-     }
+    }
  
      getContacts(){
          
