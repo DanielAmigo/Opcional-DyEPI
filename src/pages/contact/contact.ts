@@ -42,13 +42,18 @@ export class ContactPage {
 
   mostrarAlert(contacto : Contacto) {
     let alert = this.alertCtrl.create({
-      message: 'Low battery',
+      message: 'Acciones',
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel',
+          text: 'Modificar',
           handler: () => {
-            console.log('Cancel clicked');
+            this.navCtrl.push(NewContactPage,{arg_contacto:contacto});
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            this.ContactService.removeContact(contacto);
           }
         }
       ]

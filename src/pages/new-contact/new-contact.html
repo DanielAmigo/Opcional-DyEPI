@@ -14,11 +14,12 @@
 
 
 <ion-content padding>
+  <p ng-show="typeof(contacto) != undefined">{{ contacto.nombre }}</p>
   <form (ngSubmit)="onAddContact(f.value)" #f="ngForm">
     <ion-list>
         <ion-item>
           <ion-label>Nombre</ion-label>
-          <ion-input type="text" placeholder="Texto" name="nombre" ngModel required></ion-input>
+          <ion-input type="text" placeholder="contacto.nombre" name="nombre" ngModel required></ion-input>
         </ion-item>
 
         <ion-item>

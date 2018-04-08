@@ -22,8 +22,8 @@ export class ContactService{
      }
  
      removeContact(value: Contacto){
-         
-         return this.contactsRef.remove(value.key);
+        console.log("Borrando usuario con nombre " + value.nombre)
+        return this.contactsRef.remove(value.key);
      }
  
      getContacts(){
