@@ -1,3 +1,39 @@
 page-contact {
+    .toolbar-title.toolbar-title-md {
+        color: white;
+    }
 
+    button.disable-hover.bar-buttons.bar-buttons-md.bar-button.bar-button-md.bar-button-default.bar-button-default-md.bar-button-menutoggle.bar-button-menutoggle-md {
+        color: white;
+    }
+    
+    span.button-inner {
+        color: white;
+    }
+
+    .toolbar-background.toolbar-background-md {
+        background: black;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .contact-item {
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding: 8px 0px;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .item-md.item-block .item-inner {
+        border-bottom: none;
+    }
 }
