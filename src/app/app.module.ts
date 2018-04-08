@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { NewContactPage } from '../pages/new-contact/new-contact';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +23,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HomePage,
     ListPage,
     LoginPage,
-    AboutPage
+    AboutPage,
+    ContactPage,
+    NewContactPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HomePage,
     ListPage,
     LoginPage,
-    AboutPage
+    AboutPage,
+    ContactPage,
+    NewContactPage
   ],
   providers: [
     StatusBar,
