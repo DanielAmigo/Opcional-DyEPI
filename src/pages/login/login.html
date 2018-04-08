@@ -24,6 +24,13 @@
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <button ion-button (click)="login(user)">Ingresar</button>
-  <button ion-button color="light" (click)="register(user)">Register</button>
+  <button ion-button (click)="login(user)" class="ingresar-btn">
+    <ion-icon ios="ios-person" md="md-person"></ion-icon> 
+    Ingresar
+  </button>
+  
+  <button ion-button color="light" (click)="register(user)" class="registrer-btn">
+    <ion-icon name="person-add"></ion-icon>
+    Crear cuenta
+  </button>
 </ion-content>

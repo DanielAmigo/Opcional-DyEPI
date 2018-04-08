@@ -12,7 +12,7 @@
       </button>
     </ion-buttons>
 
-    <ion-title>contact</ion-title>  <!-- Título -->
+    <ion-title>Contactos</ion-title>  <!-- Título -->
 
     <ion-buttons right>       <!-- Botones finales. Añadir -->
       <button ion-button icon-only (click)="changePage()">
@@ -24,7 +24,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let contact of contacts | async" (click)="mostrarAlert(contact)">
+    <button ion-item *ngFor="let contact of contacts | async" (click)="mostrarAlert(contact)" class="contact-item">
      <p><strong>Nombre: </strong>{{contact.nombre}}</p> 
      <p><strong>Organización: </strong>{{contact.organizacion}}</p>
      <p><strong>Móvil: </strong>{{contact.numero}}</p>
