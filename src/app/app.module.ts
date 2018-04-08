@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { NewContactPage } from '../pages/new-contact/new-contact';
+import { ContactService } from '../service/contacts.services';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,6 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +50,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ContactService
   ]
 })
 export class AppModule {}
