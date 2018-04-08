@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+
 
 import { NewContactPage } from '../new-contact/new-contact';
+import { Contacto } from '../../models/contact';
+import { Observable } from '@firebase/util';
+import { ContactService } from '../../service/contacts.services';
 
 /**
  * Generated class for the ContactPage page.
@@ -17,7 +21,9 @@ import { NewContactPage } from '../new-contact/new-contact';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  contacts: Observable<Contacto[]>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ContactService: ContactService, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -27,5 +33,11 @@ export class ContactPage {
   changePage() {
     this.navCtrl.push(NewContactPage);
   }
+
+  ionViewWillEnter(){
+
+    this.contacts=this.ContactService.getContacts();
+     
+   }
 
 }

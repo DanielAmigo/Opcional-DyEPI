@@ -29,7 +29,7 @@ export class ContactService{
  
      getContacts(){
          
-         return this.contactsRef;
+        return this.contactsRef.valueChanges();
      }
 
 }
