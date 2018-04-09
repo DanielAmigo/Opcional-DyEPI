@@ -3,8 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { AgendaPage } from '../pages/agenda/agenda';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -18,14 +17,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
+    AgendaPage,
     LoginPage,
     AboutPage,
     ContactPage,
@@ -42,8 +40,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
+    AgendaPage,
     LoginPage,
     AboutPage,
     ContactPage,

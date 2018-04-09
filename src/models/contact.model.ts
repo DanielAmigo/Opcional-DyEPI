@@ -1,6 +1,6 @@
 export interface Contacto {
 
-    key?: string;
+    key: string;
     nombre: string;
     organizacion: string;
     movil: string;

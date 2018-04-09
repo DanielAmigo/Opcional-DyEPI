@@ -1,33 +1,32 @@
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "angularfire2/database";
-import { Contacto } from "../models/contact";
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Contacto } from "../models/contact.model";
 
 @Injectable()
 export class ContactService{
 
-    private contactsRef=this.db.list<Contacto>('Opcional-DyEPI');
+    private dbPath = '/Opcional-DyEPI';
+ 
+    contactsRef: AngularFireList<Contacto> = null;
 
     constructor(private db:AngularFireDatabase){
-
+        this.contactsRef = db.list(this.dbPath);
     }
 
-    addContact(value: Contacto){
- 
-         return this.contactsRef.push(value);
-     }
- 
-    updateContact(value: Contacto){
-        return this.contactsRef.update(value.key,value);
+    getContacts(){
+        return this.contactsRef = this.db.list(this.dbPath);
     }
- 
-    removeContact(value: Contacto){
-        console.log("Borrando usuario con nombre " + value.nombre)
-        return this.contactsRef.remove(value.key);
-    }
- 
-     getContacts(){
-         
-        return this.contactsRef.valueChanges();
-     }
 
+    addContact(value: Contacto): void{
+        this.contactsRef.push(value);
+    }
+ 
+    updateContact(key: string, value: any){
+        return this.contactsRef.update(key, value);
+    }
+ 
+    removeContact(key: string): void {
+        this.contactsRef.remove(key);
+    }
+ 
 }

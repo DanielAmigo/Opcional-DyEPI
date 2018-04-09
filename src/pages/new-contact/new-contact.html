@@ -1,15 +1,7 @@
-<!--
-  Generated template for the NewContactPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Nuevo Contacto</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -38,7 +30,16 @@
 
     </ion-list>
 
-    <button ion-button block type="submit" [disabled]="!f.valid">Aceptar</button>
-
+    <ion-grid>      <!-- Esta estructura para que estén los dos en paralelo -->
+      <ion-row>
+        <ion-col col-6>
+          <button type="button" ion-button block (click)="cancel()">Cancelar</button> <!-- TypeButton hace que no se relacione con el form -->
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button block type="submit" [disabled]="!f.valid">Agregar</button>          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
   </form>
 </ion-content>

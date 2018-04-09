@@ -1,18 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-
 import { NewContactPage } from '../new-contact/new-contact';
-import { Contacto } from '../../models/contact';
+import { Contacto } from '../../models/contact.model';
 import { ContactService } from '../../service/contacts.services';
 import { ModifyContactPage } from '../modify-contact/modify-contact';
-
-/**
- * Generated class for the ContactPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,10 +13,14 @@ import { ModifyContactPage } from '../modify-contact/modify-contact';
 })
 export class ContactPage {
 
-  contacts: any;
+  contactList: Contacto[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private ContactService: ContactService, private alertCtrl: AlertController) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private contactService: ContactService,
+    private alertCtrl: AlertController
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactPage');
@@ -34,15 +30,23 @@ export class ContactPage {
     this.navCtrl.push(NewContactPage);
   }
 
-  ionViewWillEnter(){
-
-    this.contacts=this.ContactService.getContacts();
-     
+  // Consigue que los contactos tengan la key de Firebase!!!!!!
+  public ionViewWillEnter() {   // En vez de ngInit porque esto es cada vez que se pone visible!!
+    console.log("ionViewWillEnter contacts.ts");
+    return this.contactService.getContacts()
+      .snapshotChanges().subscribe(item => {
+        this.contactList = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON();
+          x["key"] = element.key;
+          this.contactList.push(x as Contacto);
+        });
+      });
   }
 
-  mostrarAlert(contacto : Contacto) {
+  mostrarAlert(contacto : Contacto) {           // Alert para seleccionar modificar y eliminar un contacto
     let alert = this.alertCtrl.create({
-      message: 'Acciones',
+      title: 'Acciones',
       buttons: [
         {
           text: 'Modificar',
@@ -51,10 +55,15 @@ export class ContactPage {
           }
         },
         {
-          text: 'Eliminar',
+          text: 'Delete',
           handler: () => {
-            console.log(contacto.key)
-            this.ContactService.removeContact(contacto);
+            this.contactService.removeContact(contacto.key);
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: () => {
+            
           }
         }
       ]

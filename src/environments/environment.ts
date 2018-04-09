@@ -1,4 +1,4 @@
-export const environment = {
+export const environment = {        // Datos para vincular Firebase
     production: false,
     firebase: {
         apiKey: "AIzaSyAIxUKZxj7dAvu3SYJZPcLYruQmm4_6c7Y",

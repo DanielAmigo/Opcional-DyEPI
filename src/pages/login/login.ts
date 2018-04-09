@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from "../../models/user";
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { User } from "../../models/user.model";
 import { AngularFireAuth } from 'angularfire2/auth';
-import {HomePage} from '../home/home';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AboutPage } from '../about/about';
 
 @IonicPage()
 @Component({
@@ -20,38 +13,53 @@ export class LoginPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth,
-      public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      private afAuth: AngularFireAuth,
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public menu: MenuController
+    ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  async login(user: User) {
+  async login(user: User) {   // Boton login en Firebase
     try {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.setRoot(HomePage);
-      }  
+        this.navCtrl.setRoot(AboutPage);
+      }
     }
     catch (e) {
+      alert("Debes utilizar una cuenta válida: usuario@usuario.com, usuario");
       console.error(e);
     }
   }
  
-  async register(user: User) {
+  async register(user: User) {  // Boton registrar en Firebase
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(
         user.email,
         user.password
       );
       if (result) {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(AboutPage);
       }
     } catch (e) {
+      alert("El usuario debe ser un correo electrónico.");
       console.error(e);
     }
   }
+
+  // Para limitar el uso del menú haciendo gesto hacia la izquierda.
+  /*
+  ionViewDidEnter() {
+    this.menu.enable(false);
+  }
+  ionViewWillLeave() {
+    this.menu.enable(true);
+  } */
 
 }
