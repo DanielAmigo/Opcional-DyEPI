@@ -18,11 +18,11 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let tarea of tareaList" (click)="mostrarAlert(tarea)" class="tarea-item">
-     <p><strong>Tarea: </strong>{{tarea.tarea}}</p> 
-     <p><strong>Fecha: </strong>{{tarea.fecha}}</p>
-     <p><strong>Lugar: </strong>{{tarea.lugar}}</p>
-     <p><strong>Prioridad: </strong>{{tarea.prioridad}}</p>
+    <button ion-item *ngFor="let task of taskList" (click)="mostrarAlert(task)" class="task-item">
+     <p><strong>Tarea: </strong>{{task.tarea}}</p> 
+     <p><strong>Fecha: </strong>{{task.fecha}}</p>
+     <p><strong>Lugar: </strong>{{task.lugar}}</p>
+     <p><strong>Prioridad: </strong>{{task.prioridad}}</p>
     </button>
     
   </ion-list>

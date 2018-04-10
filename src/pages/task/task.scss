@@ -14,4 +14,10 @@ page-task {
     .toolbar-background.toolbar-background-md {
         background: black;
     }
+
+    .task-item {
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding: 8px 0px;
+    }
 }

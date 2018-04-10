@@ -18,7 +18,7 @@ export class ModifyTaskPage {
     public navParams: NavParams, 
     private taskService: TaskService
   ) {
-    this.task = navParams.get('arg_task');      // Recibimos por parámetros el objeto tasko a modificar
+    this.task = navParams.get('arg_task');      // Recibimos por parámetros el objeto task a modificar
   }
 
   ionViewDidLoad() {

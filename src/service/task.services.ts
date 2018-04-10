@@ -5,7 +5,7 @@ import { Task } from "../models/task.model";
 @Injectable()
 export class TaskService{
 
-    private dbPath = '/Opcional-DyEPI';
+    private dbPath = '/Opcional-DyEPI/tasks/';
  
     taskRef: AngularFireList<Task> = null;
 

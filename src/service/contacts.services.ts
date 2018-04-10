@@ -5,7 +5,7 @@ import { Contacto } from "../models/contact.model";
 @Injectable()
 export class ContactService{
 
-    private dbPath = '/Opcional-DyEPI';
+    private dbPath = '/Opcional-DyEPI/contacts/';
  
     contactsRef: AngularFireList<Contacto> = null;
 

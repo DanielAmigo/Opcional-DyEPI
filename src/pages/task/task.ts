@@ -44,20 +44,20 @@ export class TaskPage {
       });
   }
 
-  mostrarAlert(tarea : Task) {           // Alert para seleccionar modificar y eliminar un tarea
+  mostrarAlert(task : Task) {           // Alert para seleccionar modificar y eliminar un task
     let alert = this.alertCtrl.create({
       title: 'Acciones',
       buttons: [
         {
           text: 'Modificar',
           handler: () => {
-            this.navCtrl.push(ModifyTaskPage,{arg_tarea:tarea});
+            this.navCtrl.push(ModifyTaskPage,{arg_task:task});
           }
         },
         {
           text: 'Delete',
           handler: () => {
-            this.taskService.removeTask(tarea.key);
+            this.taskService.removeTask(task.key);
           }
         },
         {

@@ -23,6 +23,7 @@ export class NewTaskPage {
   }
 
   onAddTask(value: Task){    // Click en añadir
+    console.log(value);
     this.taskService.addTask(value);
     this.navCtrl.pop();
   }

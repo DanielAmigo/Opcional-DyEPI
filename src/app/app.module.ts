@@ -32,7 +32,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     ContactPage,
     NewContactPage,
     ModifyContactPage,
-    TaskPage,
     NewTaskPage,
     ModifyTaskPage
   ],
@@ -52,7 +51,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     ContactPage,
     NewContactPage,
     ModifyContactPage,
-    TaskPage,
     NewTaskPage,
     ModifyTaskPage
   ],
@@ -60,7 +58,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContactService
+    ContactService,
+    TaskService
   ]
 })
 export class AppModule {}
