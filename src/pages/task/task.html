@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar primary>      <!-- Iconos iniciales. Menú -->
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Agenda</ion-title>  <!-- Título -->
+
+    <ion-buttons right>       <!-- Botones finales. Añadir -->
+      <button ion-button icon-only (click)="changePage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let tarea of tareaList" (click)="mostrarAlert(tarea)" class="tarea-item">
+     <p><strong>Tarea: </strong>{{tarea.tarea}}</p> 
+     <p><strong>Fecha: </strong>{{tarea.fecha}}</p>
+     <p><strong>Lugar: </strong>{{tarea.lugar}}</p>
+     <p><strong>Prioridad: </strong>{{tarea.prioridad}}</p>
+    </button>
+    
+  </ion-list>
+</ion-content>

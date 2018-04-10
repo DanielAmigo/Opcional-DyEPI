@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nueva tarea</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="onAddTask(f.value)" #f="ngForm">
+    <ion-list>
+        <ion-item>
+          <ion-label>Tarea</ion-label>
+          <ion-input type="text" placeholder="Defensa práctica para sacar un 10" name="nombre" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha</ion-label>
+          <ion-input type="text" placeholder="12-04-2018" name="organizacion" ngModel required></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Lugar</ion-label>
+            <ion-input type="text" placeholder="UC3M" name="movil" ngModel></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Prioridad</ion-label>
+          <ion-input type="text" placeholder="alta" name="correo" ngModel></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-grid>      <!-- Esta estructura para que estén los dos en paralelo -->
+      <ion-row>
+        <ion-col col-6>
+          <button type="button" ion-button block (click)="cancel()">Cancelar</button> <!-- TypeButton hace que no se relacione con el form -->
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button block type="submit" [disabled]="!f.valid">Agregar</button>          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </form>
+</ion-content>

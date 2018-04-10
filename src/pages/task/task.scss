@@ -1,4 +1,4 @@
-page-agenda {
+page-task {
     .toolbar-title.toolbar-title-md {
         color: white;
     }
@@ -6,7 +6,11 @@ page-agenda {
     button.disable-hover.bar-buttons.bar-buttons-md.bar-button.bar-button-md.bar-button-default.bar-button-default-md.bar-button-menutoggle.bar-button-menutoggle-md {
         color: white;
     }
-
+    
+    span.button-inner {
+        color: white;
+    }
+    
     .toolbar-background.toolbar-background-md {
         background: black;
     }

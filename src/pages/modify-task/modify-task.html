@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>modify-contact</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Tarea</ion-label>
+        <ion-input type="text" [(ngModel)]="task.tarea" name="tarea" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-input type="text" [(ngModel)]="task.fecha" name="fecha" ngModel required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label>Lugar</ion-label>
+          <ion-input type="text" [(ngModel)]="task.lugar" name="lugar" ngModel></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Prioridad</ion-label>
+        <ion-input type="text" [(ngModel)]="task.prioridad" name="prioridad" ngModel></ion-input>
+    </ion-item>
+
+    <ion-grid>      <!-- Esta estructura para que estén los dos en paralelo -->
+      <ion-row>
+        <ion-col col-6>
+          <button type="button" ion-button block (click)="cancel()">Cancelar</button> <!-- TypeButton hace que no se relacione con el form -->
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button block (click)="onUpdateContact(task)">Modificar</button>       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+</ion-content>
