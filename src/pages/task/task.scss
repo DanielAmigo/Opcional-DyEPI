@@ -20,4 +20,8 @@ page-task {
         border-bottom: 1px solid grey;
         padding: 8px 0px;
     }
+
+    .item-md.item-block .item-inner {
+        border-bottom: none;
+    }
 }

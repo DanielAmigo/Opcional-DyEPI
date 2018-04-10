@@ -53,13 +53,10 @@ export class LoginPage {
     }
   }
 
-  // Para limitar el uso del menú haciendo gesto hacia la izquierda.
-  /*
   ionViewDidEnter() {
     this.menu.enable(false);
   }
   ionViewWillLeave() {
     this.menu.enable(true);
-  } */
-
+  } 
 }
